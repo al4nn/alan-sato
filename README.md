@@ -1,7 +1,7 @@
 # Danki Code
 Cursos feitos pela plataforma **https://dankicode.com/**.
 
-No momento estou fazendo o Curso Desenvolvimento Web Completo porque quero aprender mais sobre back-end.
+Atualmente, estou fazendo o **Curso Desenvolvimento Web Completo** porque quero aprender mais sobre **back-end**.
 
  - [Curso Webmaster Front-End Completo :white_check_mark: (Clique aqui para ver o certificado)](https://cursos.dankicode.com/api/certificados/a924f1fb-cf78-4995-8830-562d0297dba0) 
  - [Curso Web Design Express :white_check_mark: (Clique aqui para ver o certificado)](https://cursos.dankicode.com/api/certificados/38bfcf57-45ad-4efe-9031-343bfaaa8949)
