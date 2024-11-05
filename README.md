@@ -1,2 +1,2 @@
 # Danki Code
-Cursos feito pelo plataforma danki code.
+Cursos feito pelo plataforma https://dankicode.com/.
