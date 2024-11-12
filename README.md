@@ -1,6 +1,6 @@
 ## Danki Code
 
-Cursos feitos pela plataforma **https://dankicode.com/**.
+Cursos feitos pela plataforma **https://cursos.dankicode.com/**.
 
 Atualmente, estou fazendo o **Curso Desenvolvimento Web Completo**.
 
