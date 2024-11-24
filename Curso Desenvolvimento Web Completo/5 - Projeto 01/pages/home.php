@@ -1,7 +1,7 @@
 <section class="banner-principal">
     <div class="overlay"></div>
     <div class="container flex justify-center align-center">
-        <form class="flex column">
+        <form class="flex column" method="post">
             <h2 class="title text-white text-center fw-300">Qual seu melhor e-mail?</h2>
             <input class="text-gray-3" type="email" name="email" id="" required />
             <input class="bg-purple text-white" type="submit" name="acao" value="Cadastrar!" />

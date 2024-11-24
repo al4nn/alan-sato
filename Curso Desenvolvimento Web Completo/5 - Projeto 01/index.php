@@ -1,4 +1,7 @@
-<?php include('config.php'); ?>
+<?php
+include('config.php');
+$url = isset($_GET['url']) ? $_GET['url'] : 'home';
+?>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -24,6 +27,20 @@
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
+    <base base="<?php echo INCLUDE_PATH; ?>" />
+
+    <?php
+    switch ($url) {
+        case 'sobre':
+            echo '<target target="sobre" />';
+            break;
+
+        case 'servicos':
+            echo '<target target="servicos" />';
+            break;
+    }
+    ?>
 
     <header class="bg-purple">
         <div class="container flex justify-between align-center">
@@ -55,7 +72,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="fw-300 text-white no-decoration uppercase" href="<?php echo INCLUDE_PATH; ?>contato">
+                        <a class="fw-300 text-white no-decoration uppercase" href="<?php echo INCLUDE_PATH; ?>contato" realtime="contato">
                             Contato
                         </a>
                     </li>
@@ -64,15 +81,19 @@
         </div>
     </header>
 
-    <?php
-    $url = isset($_GET['url']) ? $_GET['url'] : 'home';
-
-    if (file_exists('pages/' . $url . '.php')) {
-        include('pages/' . $url . '.php');
-    } else {
-        include('pages/404.php');
-    }
-    ?>
+    <main>
+        <?php
+        if (file_exists('pages/' . $url . '.php')) {
+            include('pages/' . $url . '.php');
+        } else {
+            if ($url != 'sobre' && $url != 'servicos') {
+                include('pages/404.php');
+            } else {
+                include('pages/home.php');
+            }
+        }
+        ?>
+    </main>
 
     <footer>
         <div class="container text-white text-center">
@@ -80,7 +101,8 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>assets/libs/jquery-3.7.1.min.js"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>assets/libs/jquery.mask.js"></script>
     <script src="<?php echo INCLUDE_PATH; ?>assets/js/main.js"></script>
 </body>
 

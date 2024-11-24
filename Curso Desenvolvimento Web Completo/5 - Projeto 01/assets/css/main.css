@@ -352,4 +352,55 @@ footer {
 .erro-404 .container a:hover {
   background-color: #00c59e;
   color: #000;
+}
+
+.contato {
+  padding: 3.75rem 0 0;
+}
+.contato .container form {
+  margin-bottom: 2.5rem;
+}
+.contato .container form input,
+.contato .container form textarea {
+  display: block;
+  padding: 0.625rem 0.5rem;
+  max-width: 31.25rem;
+  width: 100%;
+  margin: 1.25rem auto;
+  outline: none;
+  border-radius: 5px;
+  border: 0.0625rem solid #2f3664;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+}
+@media (max-width: 48rem) {
+  .contato .container form input,
+  .contato .container form textarea {
+    font-size: 0.875rem;
+  }
+}
+.contato .container form input:first-of-type {
+  margin-top: 0;
+}
+.contato .container form input[type=submit] {
+  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.contato .container form input[type=submit]:hover {
+  background-color: #00c59e;
+}
+.contato .container form textarea {
+  resize: none;
+  height: 6.25rem;
+}
+.contato iframe {
+  width: 100%;
+  height: 37.5rem;
+}
+@media (max-width: 48rem) {
+  .contato iframe {
+    height: 25rem;
+  }
 }/*# sourceMappingURL=main.css.map */
