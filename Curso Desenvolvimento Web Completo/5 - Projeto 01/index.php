@@ -1,6 +1,9 @@
 <?php
 include('config.php');
 $url = isset($_GET['url']) ? $_GET['url'] : 'home';
+require_once realpath(__DIR__ . '/vendor/autoload.php');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 ?>
 
 <!DOCTYPE html>
@@ -103,6 +106,7 @@ $url = isset($_GET['url']) ? $_GET['url'] : 'home';
 
     <script src="<?php echo INCLUDE_PATH; ?>assets/libs/jquery-3.7.1.min.js"></script>
     <script src="<?php echo INCLUDE_PATH; ?>assets/libs/jquery.mask.js"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>assets/libs/sweetalert2.js"></script>
     <script src="<?php echo INCLUDE_PATH; ?>assets/js/main.js"></script>
 </body>
 
