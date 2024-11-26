@@ -1,23 +1,9 @@
 <section class="banner-principal">
     <div class="overlay"></div>
     <div class="container flex justify-center align-center column">
-        <?php
-        if (isset($_POST['acao'])) {
-            if ($_POST['email'] != '') {
-                $email = $_POST['email'];
-                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $email = new Email();
-                } else {
-                    echo '<script>alert("Não é um e-mail válido!");</script>';
-                }
-            } else {
-                echo '<script>alert("Campos vázios não são permitidos!");</script>';
-            }
-        }
-        ?>
         <form class="flex column" method="post">
             <h2 class="title text-white text-center fw-300">Qual seu melhor e-mail?</h2>
-            <input type="hidden" name="form" value="Formulário do Banner" />
+            <input type="hidden" name="formulario" value="Formulário do Banner" />
             <input class="text-gray-3" type="email" name="email" id="" required />
             <input class="bg-purple text-white" type="submit" name="acao" value="Cadastrar!" />
         </form>

@@ -1,4 +1,9 @@
 <?php
+require_once realpath(__DIR__ . '/vendor/autoload.php');
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 $autoload = function ($class) {
     if ($class == 'Email') {
         include('vendor/autoload.php');

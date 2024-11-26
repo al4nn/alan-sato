@@ -1,6 +1,10 @@
 $(document).ready(function () {
     const include_path = $("base").attr("base");
 
+    $("main").on("load", function () {
+        $('input[name="telefone"]').mask("(00) 00000-0000");
+    });
+
     $("header .menu").on("click", function () {
         $(this).toggleClass("active");
         $("nav").toggleClass("active");
@@ -17,28 +21,56 @@ $(document).ready(function () {
         $("html,body").animate({ scrollTop: scrollTo }, 600);
     }
 
-    var SPMaskBehavior = function (val) {
-            return val.replace(/\D/g, "").length === 11
-                ? "(00) 00000-0000"
-                : "(00) 0000-00009";
-        },
-        spOptions = {
-            onKeyPress: function (val, e, field, options) {
-                field.mask(SPMaskBehavior.apply({}, arguments), options);
-            },
-        };
-
-    $("input[name=telefone]").mask(SPMaskBehavior, spOptions);
-
     function carregarDinamico() {
         $("[realtime]").click(function () {
             let page = $(this).attr("realtime");
             $("main").hide();
-            $("main").load(include_path + "/pages/" + page + ".php");
-            $("main").fadeIn(1000);
+            $("main").load(
+                include_path + "/pages/" + page + ".php",
+                function () {
+                    $("main").fadeIn(1000);
+                    $('input[name="telefone"]').mask("(00) 00000-0000");
+                }
+            );
             return false;
         });
     }
 
     carregarDinamico();
+
+    $("body").on("submit", "form", function (e) {
+        e.preventDefault();
+
+        let form = $(this);
+        let button = form.find("input:submit");
+        button.val("Enviando...").prop("disabled", true);
+
+        $.ajax({
+            url: include_path + "ajax/forms.php",
+            method: "post",
+            dataType: "json",
+            data: form.serialize(),
+        }).done(function (data) {
+            if (data.sucesso) {
+                console.log("Sucesso!");
+                button.val("Cadastrar!").prop("disabled", false);
+                Swal.fire({
+                    icon: "success",
+                    title: "Enviado com sucesso!",
+                });
+                form.trigger("reset");
+            } else {
+                console.log("Erro!");
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro ao enviar, tente novamente!",
+                });
+                button
+                    .val("Cadastrar!")
+                    .prop("disabled", false);
+            }
+        });
+
+        return false;
+    });
 });

@@ -1,6 +1,7 @@
 <section class="contato">
     <div class="container">
         <form method="post">
+            <input type="hidden" name="formulario" value="Formulário de Contato">
             <input type="text" name="nome" placeholder="Nome completo" id="" required />
             <input type="email" name="email" placeholder="E-mail" id="" required />
             <input type="text" name="telefone" placeholder="Telefone" id="" required />

@@ -8,13 +8,12 @@ class Email
 {
     private $mailer;
 
-    public function __construct($host, $username, $password, $nome)
+    public function __construct($host, $username, $password, $name)
     {
-        require 'vendor/autoload.php';
+        $this->mailer = new PHPMailer();
 
-        $this->mailer = new PHPMailer(true);
+        $this->mailer->CharSet = 'UTF-8';
 
-        //$mail->SMTPDebug = 3;                                         // Enable verbose debug output
         $this->mailer->isSMTP();                                                // Set mailer to use SMTP
         $this->mailer->Host = $host;                                            // Specify main and backup SMTP servers
         $this->mailer->SMTPAuth = true;                                         // Enable SMTP authentication
@@ -23,26 +22,26 @@ class Email
         $this->mailer->SMTPSecure = 'tls';                                      // Enable TLS encryption, `ssl` also accepted
         $this->mailer->Port = 587;                                              // TCP port to connect to
 
-        $mail->setFrom($username, $nome);
+        $this->mailer->setFrom($username, $name);
 
-        $mail->isHTML(true);                                            // Set email format to HTML
+        $this->mailer->isHTML(true);                                            // Set email format to HTML
     }
 
-    public function addAddress($email, $nome)
+    public function addAddress($email, $name)
     {
-        $this->mailer->addAddress($email, $nome);                   // Add a recipient
+        $this->mailer->addAddress($email, $name);                               // Add a recipient
     }
 
     public function formatEmail($info)
     {
-        $mail->Subject = $info['assunto'];
-        $mail->Body = $info['body'];
-        $mail->AltBody = strip_tags($info['body']);
+        $this->mailer->Subject = $info['subject'];
+        $this->mailer->Body = $info['body'];
+        $this->mailer->AltBody = strip_tags($info['body']);
     }
 
     public function sendEmail()
     {
-        if ($this->mailer->sendMail()) {
+        if ($this->mailer->send()) {
             return true;
         } else {
             return false;
