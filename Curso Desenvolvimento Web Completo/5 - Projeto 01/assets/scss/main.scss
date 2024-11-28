@@ -1,3 +1,4 @@
-@import "globals/globals";
-@import "components/components";
-@import "pages/pages";
+@use "base";
+@use "components";
+@use "pages";
+@use "../../painel/assets/scss/painel";

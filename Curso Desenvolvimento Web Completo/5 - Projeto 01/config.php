@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once realpath(__DIR__ . '/vendor/autoload.php');
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -14,4 +16,5 @@ $autoload = function ($class) {
 
 spl_autoload_register($autoload);
 
-define("INCLUDE_PATH", "http://estudos.danki-code.projeto1.localhost/");
+define('INCLUDE_PATH', 'http://estudos.danki-code.projeto1.localhost/');
+define('INCLUDE_PATH_PAINEL', INCLUDE_PATH . 'painel/');
