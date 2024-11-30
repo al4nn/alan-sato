@@ -22,7 +22,7 @@ $info = array(
     'body' => $body
 );
 
-$mail = new Email($_ENV['HOST'], $_ENV['USERNAME'], $_ENV['PASSWORD'], 'Alan Sato');
+$mail = new Email($_ENV['SMTP_HOST'], $_ENV['SMTP_USERNAME'], $_ENV['SMTP_PASSWORD'], 'Alan Sato');
 $mail->addAddress('alan.sato96@outlook.com', 'Teste');
 $mail->formatEmail($info);
 

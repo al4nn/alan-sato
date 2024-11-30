@@ -15,6 +15,11 @@ $(document).ready(function () {
         });
     });
 
+    $(".painel .wrapper aside .menu").on("click", function () {
+        $(this).toggleClass("active");
+        $(".painel .wrapper aside").toggleClass("active");
+    });
+
     if ($("target").length > 0) {
         let el = "#" + $("target").attr("target");
         let scrollTo = $(el).offset().top;
@@ -65,9 +70,7 @@ $(document).ready(function () {
                     icon: "error",
                     title: "Erro ao enviar, tente novamente!",
                 });
-                button
-                    .val("Cadastrar!")
-                    .prop("disabled", false);
+                button.val("Cadastrar!").prop("disabled", false);
             }
         });
 

@@ -1,1 +1,0 @@
-Se estiver logado!

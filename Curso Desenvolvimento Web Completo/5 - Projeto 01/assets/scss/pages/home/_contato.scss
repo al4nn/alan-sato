@@ -13,7 +13,7 @@
                 width: 100%;
                 margin: 1.25rem auto;
                 outline: none;
-                border-radius: 5px;
+                border-radius: 0.3125rem;
                 border: 0.0625rem solid #2f3664;
                 font-size: 1rem;
                 font-family: "Open Sans", sans-serif;
@@ -31,7 +31,7 @@
                 &[type="submit"] {
                     cursor: pointer;
                     border: 0;
-                    border-radius: 5px;
+                    border-radius: 0.3125rem;
                     transition: all 0.3s ease;
 
                     &:hover {

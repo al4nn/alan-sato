@@ -23,11 +23,11 @@ header {
             @media (max-width: 48rem) {
                 display: flex;
                 flex-direction: column;
-                gap: 5px;
+                gap: 0.3125rem;
 
                 span {
                     background-color: #fff;
-                    height: 2px;
+                    height: 0.125rem;
                     width: 1.875rem;
                     transition: all 0.3s ease;
                 }
