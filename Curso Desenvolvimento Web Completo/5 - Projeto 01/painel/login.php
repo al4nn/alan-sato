@@ -31,9 +31,13 @@
                     $sql->execute(array($username, $password));
 
                     if ($sql->rowCount() == 1) {
+                        $info = $sql->fetch();
                         $_SESSION['login'] = true;
                         $_SESSION['username'] = $username;
                         $_SESSION['password'] = $password;
+                        $_SESSION['name'] = $info['name'];
+                        $_SESSION['image'] = $info['image'];
+                        $_SESSION['position'] = $info['position'];
                         header('Location: ' . INCLUDE_PATH_PAINEL);
                         die();
                     } else {
