@@ -1,3 +1,18 @@
+*::-webkit-scrollbar {
+    height: 0.625rem;
+    width: 0.625rem;
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 0.3125rem;
+    background-color: #ccc;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 0.3125rem;
+    background-color: #2a1e47;
+}
+
 .painel {
     background-color: rgb(225, 225, 225);
     position: relative;
@@ -13,7 +28,7 @@
         transition: all 0.3s ease;
 
         &.active {
-            max-width: calc(100% - 12.5rem);
+            max-width: calc(100% - 15.625rem);
         }
 
         .menu {
@@ -57,14 +72,26 @@
             width: 100%;
             background-color: #110f17;
             padding: 0.9375rem;
-            // position: relative;
             transition: all 0.3s ease;
+            overflow-y: auto;
+            overflow-x: hidden;
 
             &.active {
-                max-width: 12.5rem;
+                max-width: 15.625rem;
 
                 nav {
+                    .title {
+                        padding: 0.3125rem 0.9375rem;
+                        opacity: 1;
+                        width: unset;
+                        height: unset;
+                        background-color: #2a1e47;
+                        margin: 0.9375rem -0.9375rem;
+                    }
+
                     ul {
+                        margin-bottom: 0 !important;
+
                         li {
                             justify-content: flex-start;
 
@@ -114,6 +141,7 @@
                     width: 0;
                     height: 0;
                     transition: all 0.3s ease;
+                    pointer-events: none;
                 }
 
                 .position {
@@ -130,6 +158,7 @@
                         width: 100%;
                         max-height: 10.625rem;
                         height: 100vh;
+                        margin: 0 auto;
 
                         svg {
                             max-width: 6.25rem;
@@ -152,6 +181,7 @@
                         opacity: 1;
                         width: 100%;
                         height: max-content;
+                        pointer-events: none;
                     }
 
                     .position {
@@ -164,12 +194,25 @@
             }
 
             nav {
-                padding: 3.75rem 0;
+                padding: 1.25rem 0 3.75rem;
+
+                .title {
+                    font-size: 1rem;
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                    transition: all 0.3s ease;
+                    pointer-events: none;
+                }
 
                 ul {
                     gap: 1.875rem;
                     list-style-type: none;
                     justify-content: center;
+
+                    &:not(:last-of-type) {
+                        margin-bottom: 1.875rem;
+                    }
 
                     li {
                         display: flex;
@@ -208,6 +251,32 @@
 
             &.active {
                 padding: 4.4375rem 1rem 1rem 13.5rem;
+            }
+
+            .box {
+                background-color: #fff;
+                width: 100%;
+                margin-bottom: 1rem;
+                padding: 0.5rem;
+                border-radius: 0.3125rem;
+                box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.6);
+            }
+
+            .title {
+                gap: 0.5rem;
+                margin-bottom: 1.25rem;
+
+                svg {
+                    max-width: 1rem;
+                }
+
+                h2 {
+                    font-size: 1.125rem;
+                }
+            }
+
+            .wrapper-box {
+                gap: 1rem;
             }
         }
     }
