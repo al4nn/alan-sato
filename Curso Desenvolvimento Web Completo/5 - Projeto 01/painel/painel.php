@@ -367,7 +367,32 @@ if (isset($_GET['logout'])) {
                             Painel de Controle
                         </h2>
                     </div>
-                    
+                    <div class="wrapper-box flex justify-between">
+                        <div class="single bg-yellow">
+                            <h2 class="text-white fw-600">
+                                Usuários Online
+                            </h2>
+                            <p class="text-white">
+                                10
+                            </p>
+                        </div>
+                        <div class="single bg-orange">
+                            <h2 class="text-white fw-600">
+                                Total de Visitas
+                            </h2>
+                            <p class="text-white">
+                                100
+                            </p>
+                        </div>
+                        <div class="single bg-green">
+                            <h2 class="text-white fw-600">
+                                Visitas Hoje
+                            </h2>
+                            <p class="text-white">
+                                3
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>
