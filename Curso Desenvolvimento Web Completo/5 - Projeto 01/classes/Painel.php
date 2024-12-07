@@ -1,7 +1,7 @@
 <?php
 class Painel
 {
-    public static function logado()
+    public static function logged()
     {
         return isset($_SESSION['login']) ? true : false;
     }
@@ -10,5 +10,20 @@ class Painel
     {
         session_destroy();
         header('Location: ' . INCLUDE_PATH_PAINEL);
+    }
+
+    public static function loadPage()
+    {
+        if (isset($_GET['url'])) {
+            $url = explode('/', $_GET['url']);
+
+            if (file_exists('pages/' . $url[0] . '.php')) {
+                include('pages/' . $url[0] . '.php');
+            } else {
+                include('pages/error.php');
+            }
+        } else {
+            include('pages/home.php');
+        }
     }
 }

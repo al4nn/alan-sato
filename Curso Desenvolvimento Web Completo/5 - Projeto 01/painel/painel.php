@@ -79,12 +79,28 @@ if (isset($_GET['logout'])) {
                     </div>
                 </div>
                 <nav>
+                    <ul class="flex column">
+                        <li>
+                            <a class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>" title="Home">
+                                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0L0 6V8H1V15H4V10H7V15H15V8H16V6L14 4.5V1H11V2.25L8 0ZM9 10H12V13H9V10Z" fill="#fff"></path>
+                                    </g>
+                                </svg>
+                                <p>
+                                    Home
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                     <div class="title text-white fw-700">
                         Cadastro
                     </div>
                     <ul class="flex column">
                         <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Cadastrar Depoimento">
+                            <a class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-depoimento" title="Cadastrar Depoimento">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -102,7 +118,7 @@ if (isset($_GET['logout'])) {
                             </a>
                         </li>
                         <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Cadastrar Serviço">
+                            <a class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-adwdaw" title="Cadastrar Serviço">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -241,159 +257,11 @@ if (isset($_GET['logout'])) {
                             </a>
                         </li>
                     </ul>
-                    <!-- <div class="title text-white fw-700">
-                        Editar Seções
-                    </div>
-                    <ul class="flex column">
-                        <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Header">
-                                <svg fill="#fff" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M213.333 0C95.5126 0 0 95.5126 0 213.333V1706.67C0 1824.49 95.5126 1920 213.333 1920H1706.67C1824.49 1920 1920 1824.49 1920 1706.67V213.333C1920 95.5126 1824.49 0 1706.67 0H213.333ZM266.667 746.667C237.211 746.667 213.333 722.788 213.333 693.333V373.333C213.333 343.878 237.211 320 266.667 320H1653.33C1682.79 320 1706.67 343.878 1706.67 373.333V693.333C1706.67 722.788 1682.79 746.667 1653.33 746.667H266.667Z"></path>
-                                    </g>
-                                </svg>
-                                <p>Header</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Banner">
-                                <svg viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#ffffff" stroke="#ffffff">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-                                            <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-362.000000, -101.000000)" fill="#ffffff">
-                                                <path d="M392,129 C392,130.104 391.104,131 390,131 L384.832,131 L377.464,123.535 L386,114.999 L392,120.999 L392,129 L392,129 Z M366,131 C364.896,131 364,130.104 364,129 L364,128.061 L371.945,120.945 L382.001,131 L366,131 L366,131 Z M370,105 C372.209,105 374,106.791 374,109 C374,111.209 372.209,113 370,113 C367.791,113 366,111.209 366,109 C366,106.791 367.791,105 370,105 L370,105 Z M390,101 L366,101 C363.791,101 362,102.791 362,105 L362,129 C362,131.209 363.791,133 366,133 L390,133 C392.209,133 394,131.209 394,129 L394,105 C394,102.791 392.209,101 390,101 L390,101 Z M370,111 C371.104,111 372,110.104 372,109 C372,107.896 371.104,107 370,107 C368.896,107 368,107.896 368,109 C368,110.104 368.896,111 370,111 L370,111 Z" id="image-picture" sketch:type="MSShapeGroup"> </path>
-                                            </g>
-                                        </g>
-                                    </g>
-                                </svg>
-                                <p>Banner</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Sobre">
-                                <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <g id="drop" fill="#fff" transform="translate(42.666667, 42.666667)">
-                                                <path d="M213.333333,3.55271368e-14 C331.154987,3.55271368e-14 426.666667,95.51168 426.666667,213.333333 C426.666667,331.153707 331.154987,426.666667 213.333333,426.666667 C95.51296,426.666667 3.55271368e-14,331.153707 3.55271368e-14,213.333333 C3.55271368e-14,95.51168 95.51296,3.55271368e-14 213.333333,3.55271368e-14 Z M234.713387,192 L192.04672,192 L192.04672,320 L234.713387,320 L234.713387,192 Z M213.55008,101.333333 C197.99616,101.333333 186.713387,112.5536 186.713387,127.704107 C186.713387,143.46752 197.698773,154.666667 213.55008,154.666667 C228.785067,154.666667 240.04672,143.46752 240.04672,128 C240.04672,112.5536 228.785067,101.333333 213.55008,101.333333 Z" id="Shape"> </path>
-                                            </g>
-                                        </g>
-                                    </g>
-                                </svg>
-                                <p>Sobre</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Especialidades">
-                                <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <g id="drop" fill="#fff" transform="translate(42.666667, 42.666667)">
-                                                <path d="M213.333333,3.55271368e-14 C331.154987,3.55271368e-14 426.666667,95.51168 426.666667,213.333333 C426.666667,331.153707 331.154987,426.666667 213.333333,426.666667 C95.51296,426.666667 3.55271368e-14,331.153707 3.55271368e-14,213.333333 C3.55271368e-14,95.51168 95.51296,3.55271368e-14 213.333333,3.55271368e-14 Z M234.713387,192 L192.04672,192 L192.04672,320 L234.713387,320 L234.713387,192 Z M213.55008,101.333333 C197.99616,101.333333 186.713387,112.5536 186.713387,127.704107 C186.713387,143.46752 197.698773,154.666667 213.55008,154.666667 C228.785067,154.666667 240.04672,143.46752 240.04672,128 C240.04672,112.5536 228.785067,101.333333 213.55008,101.333333 Z" id="Shape"> </path>
-                                            </g>
-                                        </g>
-                                    </g>
-                                </svg>
-                                <p>Especialidades</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Depoimentos">
-                                <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <g id="drop" fill="#fff" transform="translate(42.666667, 42.666667)">
-                                                <path d="M213.333333,3.55271368e-14 C331.154987,3.55271368e-14 426.666667,95.51168 426.666667,213.333333 C426.666667,331.153707 331.154987,426.666667 213.333333,426.666667 C95.51296,426.666667 3.55271368e-14,331.153707 3.55271368e-14,213.333333 C3.55271368e-14,95.51168 95.51296,3.55271368e-14 213.333333,3.55271368e-14 Z M234.713387,192 L192.04672,192 L192.04672,320 L234.713387,320 L234.713387,192 Z M213.55008,101.333333 C197.99616,101.333333 186.713387,112.5536 186.713387,127.704107 C186.713387,143.46752 197.698773,154.666667 213.55008,154.666667 C228.785067,154.666667 240.04672,143.46752 240.04672,128 C240.04672,112.5536 228.785067,101.333333 213.55008,101.333333 Z" id="Shape"> </path>
-                                            </g>
-                                        </g>
-                                    </g>
-                                </svg>
-                                <p>Depoimentos</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Serviços">
-                                <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <g id="drop" fill="#fff" transform="translate(42.666667, 42.666667)">
-                                                <path d="M213.333333,3.55271368e-14 C331.154987,3.55271368e-14 426.666667,95.51168 426.666667,213.333333 C426.666667,331.153707 331.154987,426.666667 213.333333,426.666667 C95.51296,426.666667 3.55271368e-14,331.153707 3.55271368e-14,213.333333 C3.55271368e-14,95.51168 95.51296,3.55271368e-14 213.333333,3.55271368e-14 Z M234.713387,192 L192.04672,192 L192.04672,320 L234.713387,320 L234.713387,192 Z M213.55008,101.333333 C197.99616,101.333333 186.713387,112.5536 186.713387,127.704107 C186.713387,143.46752 197.698773,154.666667 213.55008,154.666667 C228.785067,154.666667 240.04672,143.46752 240.04672,128 C240.04672,112.5536 228.785067,101.333333 213.55008,101.333333 Z" id="Shape"> </path>
-                                            </g>
-                                        </g>
-                                    </g>
-                                </svg>
-                                <p>Serviços</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Footer">
-                                <svg fill="#fff" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M213.333 0C95.5126 0 0 95.5126 0 213.333V1706.67C0 1824.49 95.5126 1920 213.333 1920H1706.67C1824.49 1920 1920 1824.49 1920 1706.67V213.333C1920 95.5126 1824.49 0 1706.67 0H213.333ZM266.667 746.667C237.211 746.667 213.333 722.788 213.333 693.333V373.333C213.333 343.878 237.211 320 266.667 320H1653.33C1682.79 320 1706.67 343.878 1706.67 373.333V693.333C1706.67 722.788 1682.79 746.667 1653.33 746.667H266.667Z"></path>
-                                    </g>
-                                </svg>
-                                <p>Footer</p>
-                            </a>
-                        </li>
-                    </ul> -->
                 </nav>
             </aside>
 
             <main>
-                <div class="box">
-                    <div class="title flex align-center">
-                        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0L0 6V8H1V15H4V10H7V15H15V8H16V6L14 4.5V1H11V2.25L8 0ZM9 10H12V13H9V10Z" fill="#000000"></path>
-                            </g>
-                        </svg>
-                        <h2>
-                            Painel de Controle
-                        </h2>
-                    </div>
-                    <div class="wrapper-box flex justify-between">
-                        <div class="single bg-yellow">
-                            <h2 class="text-white fw-600">
-                                Usuários Online
-                            </h2>
-                            <p class="text-white">
-                                10
-                            </p>
-                        </div>
-                        <div class="single bg-orange">
-                            <h2 class="text-white fw-600">
-                                Total de Visitas
-                            </h2>
-                            <p class="text-white">
-                                100
-                            </p>
-                        </div>
-                        <div class="single bg-green">
-                            <h2 class="text-white fw-600">
-                                Visitas Hoje
-                            </h2>
-                            <p class="text-white">
-                                3
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <?php Painel::loadPage(); ?>
             </main>
         </div>
     </section>

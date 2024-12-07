@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+date_default_timezone_set('America/Sao_Paulo');
+
 require_once realpath(__DIR__ . '/vendor/autoload.php');
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -24,6 +26,8 @@ define('DB_HOST', $_ENV['DB_HOST']);
 define('DB_NAME', $_ENV['DB_NAME']);
 define('DB_USERNAME', $_ENV['DB_USERNAME']);
 define('DB_PASSWORD', $_ENV['DB_PASSWORD']);
+
+define('NOME_EMPRESA', 'Alan Sato Dev.');
 
 function positionPick($position)
 {

@@ -257,61 +257,6 @@
             &.active {
                 padding: 4.4375rem 1rem 1rem 16.625rem;
             }
-
-            .box {
-                background-color: #fff;
-                width: 100%;
-                margin-bottom: 1rem;
-                padding: 1rem;
-                border-radius: 0.3125rem;
-                box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.6);
-
-                @media (max-width: 53.75rem) {
-                    min-width: 16.8125rem;
-                }
-            }
-
-            .title {
-                gap: 0.5rem;
-                margin-bottom: 1.25rem;
-
-                svg {
-                    max-width: 1rem;
-                }
-
-                h2 {
-                    font-size: 1.125rem;
-                }
-            }
-
-            .wrapper-box {
-                gap: 1rem;
-
-                @media (max-width: 48rem) {
-                    flex-direction: column;
-                }
-
-                .single {
-                    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.6);
-                    border-radius: 0.3125rem;
-                    width: 100%;
-                    padding: 1rem;
-
-                    p {
-                        font-size: 1.25rem;
-                    }
-
-                    @media (max-width: 53.75rem) {
-                        h2 {
-                            font-size: 1.25rem;
-                        }
-
-                        p {
-                            font-size: 1rem;
-                        }
-                    }
-                }
-            }
         }
     }
 }

@@ -1,7 +1,7 @@
 <?php
 include('../config.php');
 
-if (Painel::logado() == false) {
+if (Painel::logged() == false) {
     include('login.php');
 } else {
     include('painel.php');

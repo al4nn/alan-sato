@@ -1,6 +1,7 @@
 <?php
 include('config.php');
 $url = isset($_GET['url']) ? $_GET['url'] : 'home';
+Site::updateUserOnline();
 ?>
 
 <!DOCTYPE html>
