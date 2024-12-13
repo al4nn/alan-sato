@@ -27,4 +27,19 @@ class Painel
             include('pages/home.php');
         }
     }
+
+    public static function listOnlineUsers()
+    {
+        self::cleanUsersOnline();
+        $sql = MySql::connect()->prepare("SELECT * FROM `tb_admin.online`");
+        $sql->execute();
+
+        return $sql->fetchAll();
+    }
+
+    public static function cleanUsersOnline()
+    {
+        $date = date('Y-m-d H:i:s');
+        $sql = MySql::connect()->exec("DELETE FROM `tb_admin.online` WHERE ultima_acao < '$date' - INTERVAL 1 MINUTE");
+    }
 }

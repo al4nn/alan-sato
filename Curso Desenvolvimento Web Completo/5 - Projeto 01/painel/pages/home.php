@@ -1,3 +1,7 @@
+<?php
+$usuariosOnline = Painel::listOnlineUsers();
+?>
+
 <div class="box-painel">
     <div class="title flex align-center">
         <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,7 +21,7 @@
                 Usuários Online
             </h2>
             <p class="text-white">
-                10
+                <?php echo count($usuariosOnline); ?>
             </p>
         </div>
         <div class="single bg-orange">
@@ -51,7 +55,7 @@
             </g>
         </svg>
         <h2>
-            Usuário Online
+            Informações dos Usuários Online
         </h2>
     </div>
     <div class="table">
@@ -63,15 +67,20 @@
                 <span class="fw-700">Última Ação</span>
             </div>
         </div>
-        <?php for ($i = 0; $i < 10; $i++) : ?>
+        <?php foreach ($usuariosOnline as $usuario) : ?>
             <div class="row grid">
                 <div class="col">
-                    <span>199.199.199.199</span>
+                    <span>
+                        <?php echo $usuario['ip'] != '' ? $usuario['ip'] : '199.199.199.199' ?>
+                    </span>
                 </div>
                 <div class="col">
-                    <span>19/09/2011 19:00:00</span>
+                    <span>
+                        <?php $date = date('d/m/Y H:i:s', strtotime($usuario['ultima_acao'])); ?>
+                        <?php echo $date != '' ? $date : '19/09/2011 19:00:00' ?>
+                    </span>
                 </div>
             </div>
-        <?php endfor; ?>
+        <?php endforeach; ?>
     </div>
 </div>
