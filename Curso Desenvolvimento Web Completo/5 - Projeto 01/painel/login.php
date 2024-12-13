@@ -1,3 +1,5 @@
+<?php require_once('../config.php'); ?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -8,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login - Painel de Controle</title>
+    <title>Login - Painel de Controle <?php echo NOME_EMPRESA; ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>assets/css/main.min.css">
@@ -27,24 +29,30 @@
                     $username = $_POST['username'];
                     $password = $_POST['password'];
 
-                    $sql = MySql::connect()->prepare("SELECT * FROM `tb_admin.usuarios` WHERE username = ? AND password = ?");
-                    $sql->execute(array($username, $password));
+                    $sql = MySql::connect()->prepare("SELECT * FROM `tb_admin.usuarios` WHERE username = ?");
+                    $sql->execute(array($username));
 
                     if ($sql->rowCount() == 1) {
                         $info = $sql->fetch();
-                        $_SESSION['login'] = true;
-                        $_SESSION['username'] = $username;
-                        $_SESSION['password'] = $password;
-                        $_SESSION['name'] = $info['name'];
-                        $_SESSION['image'] = $info['image'];
-                        $_SESSION['position'] = $info['position'];
-                        header('Location: ' . INCLUDE_PATH_PAINEL);
-                        die();
+
+                        if (password_verify($password, $info['password'])) {
+                            $_SESSION['login'] = true;
+                            $_SESSION['username'] = $username;
+                            $_SESSION['name'] = $info['name'];
+                            $_SESSION['image'] = $info['image'];
+                            $_SESSION['position'] = $info['position'];
+
+                            header('Location: ' . INCLUDE_PATH_PAINEL);
+                            die();
+                        } else {
+                            echo '<p class="bg-red text-white text-center">Usuário ou senha incorreto, tente novamente!</p>';
+                        }
                     } else {
-                        echo '<p class="bg-red text-white text-center">Usuário ou senha incorreto, tente novamente!</p>';
+                        echo '<p class="bg-red text-white text-center">Usuário não encontrado!</p>';
                     }
                 }
                 ?>
+
                 <form class="flex column align-end" method="post">
                     <h2 class="text-center text-white uppercase">Logomarca</h2>
                     <input type="text" name="username" placeholder="Usuário" id="" required />

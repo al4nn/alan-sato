@@ -1,8 +1,8 @@
 <?php
-include('../config.php');
+require_once('../config.php');
 
 if (Painel::logged() == false) {
-    include('login.php');
+    require_once('login.php');
 } else {
-    include('painel.php');
+    require_once('painel.php');
 }

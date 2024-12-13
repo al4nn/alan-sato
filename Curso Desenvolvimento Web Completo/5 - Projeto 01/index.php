@@ -1,5 +1,6 @@
 <?php
-include('config.php');
+require_once('config.php');
+
 $url = isset($_GET['url']) ? $_GET['url'] : 'home';
 Site::updateUserOnline();
 ?>

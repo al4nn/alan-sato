@@ -1,4 +1,10 @@
 <?php
+if (!isset($_SESSION['login']) || $_SESSION['login'] === false) {
+    header('Location: login.php');
+    exit();
+}
+
+
 if (isset($_GET['logout'])) {
     Painel::logout();
 }
@@ -14,7 +20,7 @@ if (isset($_GET['logout'])) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Painel de Controle</title>
+    <title>Painel de Controle <?php echo NOME_EMPRESA; ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>assets/css/main.min.css">

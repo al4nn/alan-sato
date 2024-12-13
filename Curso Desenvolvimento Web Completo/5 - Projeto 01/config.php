@@ -37,5 +37,5 @@ function positionPick($position)
         '2' => 'Administrador'
     ];
 
-    return $arr[$position];
+    return $arr[$position] ?? 'Desconhecido';
 }

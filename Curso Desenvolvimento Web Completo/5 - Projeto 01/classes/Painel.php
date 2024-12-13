@@ -10,6 +10,7 @@ class Painel
     {
         session_destroy();
         header('Location: ' . INCLUDE_PATH_PAINEL);
+        exit();
     }
 
     public static function loadPage()
