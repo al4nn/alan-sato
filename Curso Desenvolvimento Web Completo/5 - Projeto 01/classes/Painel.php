@@ -42,4 +42,22 @@ class Painel
         $date = date('Y-m-d H:i:s');
         $sql = MySql::connect()->exec("DELETE FROM `tb_admin.online` WHERE ultima_acao < '$date' - INTERVAL 1 MINUTE");
     }
+
+    public static function alert($type, $mensagem)
+    {
+        $icon = $type == 'success' ? 'success' : 'error';
+        $title = $type == 'success' ? 'Usuário atualizado com sucesso!' : 'Erro ao atualizar, tente novamente!';
+        if (!empty($mensagem)) {
+            $title = $mensagem;
+        }
+
+        echo '<script>
+            document.addEventListener("DOMContentLoaded", function () {
+                Swal.fire({
+                    icon: "' . $icon . '",
+                    title: "' . $title . '"
+                });
+            });
+        </script>';
+    }
 }

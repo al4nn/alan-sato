@@ -10,7 +10,7 @@ $pegarVisitasHoje->execute(array(date('Y-m-d')));
 $pegarVisitasHoje = $pegarVisitasHoje->rowCount();
 ?>
 
-<div class="box-painel">
+<section class="box-painel">
     <div class="title flex align-center">
         <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -49,7 +49,7 @@ $pegarVisitasHoje = $pegarVisitasHoje->rowCount();
             </p>
         </div>
     </div>
-</div>
+</section>
 
 <div class="box-painel">
     <div class="title flex align-center">
