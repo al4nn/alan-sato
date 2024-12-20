@@ -51,7 +51,7 @@ $pegarVisitasHoje = $pegarVisitasHoje->rowCount();
     </div>
 </section>
 
-<div class="box-painel">
+<section class="box-painel">
     <div class="title flex align-center">
         <svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" fill="none">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -91,4 +91,4 @@ $pegarVisitasHoje = $pegarVisitasHoje->rowCount();
             </div>
         <?php endforeach; ?>
     </div>
-</div>
+</section>
