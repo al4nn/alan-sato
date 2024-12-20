@@ -23,7 +23,7 @@ if (isset($_GET['logout'])) {
     <title>Painel de Controle <?php echo NOME_EMPRESA; ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>assets/css/main.min.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>assets/css/painel.min.css">
 </head>
 
 <body>
@@ -216,7 +216,7 @@ if (isset($_GET['logout'])) {
                     </div>
                     <ul class="flex column">
                         <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Editar Usuário">
+                            <a class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>editar-usuario" title="Editar Usuário">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -273,7 +273,8 @@ if (isset($_GET['logout'])) {
     </section>
 
     <script src="<?php echo INCLUDE_PATH; ?>assets/libs/jquery-3.7.1.min.js"></script>
-    <script src="<?php echo INCLUDE_PATH; ?>assets/js/main.js"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>assets/libs/sweetalert2.js"></script>
+    <script src="<?php echo INCLUDE_PATH_PAINEL; ?>assets/js/main.js"></script>
 </body>
 
 </html>
