@@ -56,7 +56,27 @@ class Painel
                 Swal.fire({
                     icon: "' . $icon . '",
                     title: "' . $title . '",
-                    text: "' . $description . '"
+                    text: "' . $description . '",
+                });
+            });
+        </script>';
+    }
+
+    public static function alertPermissionDenied($script)
+    {
+        echo '<script>
+            document.addEventListener("DOMContentLoaded", function () {
+                Swal.fire({
+                    icon: "error",
+                    title: "Você não tem permissão para acessar essa página!",
+                    confirmButtonColor: "#2a1e47",
+                    confirmButtonText: "Voltar para Home!",
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        ' . $script . '
+                    }
                 });
             });
         </script>';
@@ -86,7 +106,8 @@ class Painel
         }
     }
 
-    public static function deleteFile($file) {
+    public static function deleteFile($file)
+    {
         @unlink('uploads/' . $file);
     }
 }

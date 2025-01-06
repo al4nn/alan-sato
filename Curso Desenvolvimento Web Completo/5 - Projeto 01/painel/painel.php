@@ -87,7 +87,7 @@ if (isset($_GET['logout'])) {
                 <nav>
                     <ul class="flex column">
                         <li>
-                            <a class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>" title="Home">
+                            <a <?php selectedMenu('', 'no-decoration text-white flex align-center'); ?> class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>" title="Home">
                                 <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -106,7 +106,7 @@ if (isset($_GET['logout'])) {
                     </div>
                     <ul class="flex column">
                         <li>
-                            <a class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-depoimento" title="Cadastrar Depoimento">
+                            <a <?php selectedMenu('cadastrar-depoimento', 'no-decoration text-white flex align-center'); ?> class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-depoimento" title="Cadastrar Depoimento">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -124,7 +124,7 @@ if (isset($_GET['logout'])) {
                             </a>
                         </li>
                         <li>
-                            <a class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-adwdaw" title="Cadastrar Serviço">
+                            <a <?php selectedMenu('cadastrar-servico', 'no-decoration text-white flex align-center'); ?> class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-servico" title="Cadastrar Serviço">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -142,7 +142,7 @@ if (isset($_GET['logout'])) {
                             </a>
                         </li>
                         <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Cadastrar Imagem">
+                            <a <?php selectedMenu('cadastrar-imagem', 'no-decoration text-white flex align-center'); ?> class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-imagem" title="Cadastrar Imagem">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -161,7 +161,7 @@ if (isset($_GET['logout'])) {
                     </div>
                     <ul class="flex column">
                         <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Listar Depoimentos">
+                            <a <?php selectedMenu('listar-depoimentos', 'no-decoration text-white flex align-center'); ?> class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>listar-depoimentos" title="Listar Depoimentos">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -179,7 +179,7 @@ if (isset($_GET['logout'])) {
                             </a>
                         </li>
                         <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Listar Serviços">
+                            <a <?php selectedMenu('listar-servicos', 'no-decoration text-white flex align-center'); ?> class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>listar-servicos" title="Listar Serviços">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -197,7 +197,7 @@ if (isset($_GET['logout'])) {
                             </a>
                         </li>
                         <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Listar Imagem">
+                            <a <?php selectedMenu('listar-imagem', 'no-decoration text-white flex align-center'); ?> class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>listar-imagem" title="Listar Imagem">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -211,12 +211,12 @@ if (isset($_GET['logout'])) {
                             </a>
                         </li>
                     </ul>
-                    <div class="title text-white fw-700">
+                    <div class="title text-white fw-700" <?php checkPermissionMenu(2); ?>>
                         Administração
                     </div>
-                    <ul class="flex column">
+                    <ul class="flex column" <?php checkPermissionMenu(2); ?>>
                         <li>
-                            <a class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>editar-usuario" title="Editar Usuário">
+                            <a <?php selectedMenu('editar-usuario', 'no-decoration text-white flex align-center'); ?> class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>editar-usuario" title="Editar Usuário">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -230,7 +230,7 @@ if (isset($_GET['logout'])) {
                             </a>
                         </li>
                         <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Adicionar Usuário">
+                            <a <?php selectedMenu('adicionar-usuario', 'no-decoration text-white flex align-center'); ?> class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>adicionar-usuario" title="Adicionar Usuário">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -249,7 +249,7 @@ if (isset($_GET['logout'])) {
                     </div>
                     <ul class="flex column">
                         <li>
-                            <a class="no-decoration text-white flex align-center" href="" title="Editar">
+                            <a <?php selectedMenu('editar-site', 'no-decoration text-white flex align-center'); ?> class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>editar-site" title="Editar">
                                 <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -258,7 +258,7 @@ if (isset($_GET['logout'])) {
                                     </g>
                                 </svg>
                                 <p>
-                                    Editar
+                                    Editar Site
                                 </p>
                             </a>
                         </li>
@@ -273,7 +273,7 @@ if (isset($_GET['logout'])) {
     </section>
 
     <script src="<?php echo INCLUDE_PATH; ?>assets/libs/jquery-3.7.1.min.js"></script>
-    <script src="<?php echo INCLUDE_PATH; ?>assets/libs/sweetalert2.js"></script>
+    <script src="<?php echo INCLUDE_PATH_PAINEL; ?>assets/libs/sweetalert2.js"></script>
     <script src="<?php echo INCLUDE_PATH_PAINEL; ?>assets/js/main.js"></script>
 </body>
 

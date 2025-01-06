@@ -40,3 +40,33 @@ function positionPick($position)
 
     return $arr[$position] ?? 'Desconhecido';
 }
+
+function selectedMenu($param, $existingClasses)
+{
+    $url = explode('/', $_GET['url'] ?? '')[0];
+
+    $classes = trim($existingClasses);
+    if ($url == $param) {
+        $classes .= ' active';
+    }
+
+    echo 'class="' . trim($classes) . '"';
+}
+
+function checkPermissionMenu($permission)
+{
+    if ($_SESSION['position'] >= $permission) {
+        return;
+    } else {
+        echo 'style="display: none;"';
+    }
+}
+
+function checkPermissionPage($permission) {
+    if ($_SESSION['position'] >= $permission) {
+        return;
+    } else {
+        include('painel/pages/permissao-negada.php');
+        die();
+    }
+}
