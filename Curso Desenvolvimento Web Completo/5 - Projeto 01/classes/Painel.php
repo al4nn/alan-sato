@@ -1,6 +1,12 @@
 <?php
 class Painel
 {
+    public static $positions = [
+        '0' => 'Usuário',
+        '1' => 'Moderador',
+        '2' => 'Administrador'
+    ];
+
     public static function logged()
     {
         return isset($_SESSION['login']) ? true : false;
@@ -99,8 +105,11 @@ class Painel
 
     public static function uploadFile($file)
     {
-        if (move_uploaded_file($file['tmp_name'], BASE_DIR_PAINEL . '/uploads/' . $file['name'])) {
-            return $file['name'];
+        $fileFormat = explode('.', $file['name']);
+        $imageName = uniqid() . '.' . $fileFormat[count($fileFormat) - 1];
+
+        if (move_uploaded_file($file['tmp_name'], BASE_DIR_PAINEL . '/uploads/' . $imageName)) {
+            return $imageName;
         } else {
             return false;
         }

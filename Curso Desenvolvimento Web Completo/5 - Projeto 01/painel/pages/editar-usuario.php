@@ -17,7 +17,7 @@
             <?php if (isset($_POST['acao'])) {
                 Painel::alert('success', 'Atualizado com sucesso!', '');
                 $name = $_POST['name'];
-                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
                 $image = $_FILES['image'];
                 $current_image = $_POST['current_image'];
                 $user = new User();
@@ -47,7 +47,7 @@
                 }
             } ?>
             <div class="form-group">
-                <input type="text" name="name" placeholder="Nome" />
+                <input type="text" name="name" placeholder="Nome" value="<?php echo $_SESSION['name']; ?>" />
             </div>
             <div class="form-group">
                 <input type="password" name="password" placeholder="Senha" />

@@ -81,7 +81,7 @@ if (isset($_GET['logout'])) {
                         <?php echo $_SESSION['name']; ?>
                     </div>
                     <div class="position text-white text-center fw-300">
-                        <?php echo positionPick($_SESSION['position']); ?>
+                        <?php echo takeOffice($_SESSION['position']); ?>
                     </div>
                 </div>
                 <nav>
@@ -211,10 +211,10 @@ if (isset($_GET['logout'])) {
                             </a>
                         </li>
                     </ul>
-                    <div class="title text-white fw-700" <?php checkPermissionMenu(2); ?>>
+                    <div class="title text-white fw-700">
                         Administração
                     </div>
-                    <ul class="flex column" <?php checkPermissionMenu(2); ?>>
+                    <ul class="flex column">
                         <li>
                             <a <?php selectedMenu('editar-usuario', 'no-decoration text-white flex align-center'); ?> class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>editar-usuario" title="Editar Usuário">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -229,8 +229,8 @@ if (isset($_GET['logout'])) {
                                 </p>
                             </a>
                         </li>
-                        <li>
-                            <a <?php selectedMenu('adicionar-usuario', 'no-decoration text-white flex align-center'); ?> class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>adicionar-usuario" title="Adicionar Usuário">
+                        <li <?php checkPermissionMenu(2); ?>>
+                            <a <?php selectedMenu('cadastrar-usuario', 'no-decoration text-white flex align-center'); ?> class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>cadastrar-usuario" title="Cadastrar Usuário">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -244,10 +244,10 @@ if (isset($_GET['logout'])) {
                             </a>
                         </li>
                     </ul>
-                    <div class="title text-white fw-700">
+                    <div class="title text-white fw-700" <?php checkPermissionMenu(2); ?>>
                         Geral
                     </div>
-                    <ul class="flex column">
+                    <ul class="flex column" <?php checkPermissionMenu(2); ?>>
                         <li>
                             <a <?php selectedMenu('editar-site', 'no-decoration text-white flex align-center'); ?> class="no-decoration text-white flex align-center" href="<?php echo INCLUDE_PATH_PAINEL; ?>editar-site" title="Editar">
                                 <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">

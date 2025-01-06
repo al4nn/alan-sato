@@ -30,7 +30,7 @@
                     $password = $_POST['password'];
 
                     $sql = MySql::connect()->prepare("SELECT * FROM `tb_admin.usuarios` WHERE username = ?");
-                    $sql->execute(array($username));
+                    $sql->execute([$username]);
 
                     if ($sql->rowCount() == 1) {
                         $info = $sql->fetch();
@@ -45,7 +45,7 @@
                             header('Location: ' . INCLUDE_PATH_PAINEL);
                             die();
                         } else {
-                            echo '<p class="bg-red text-white text-center">Usuário ou senha incorreto, tente novamente!</p>';
+                            echo '<p class="bg-red text-white text-center">Usuário ou senha incorretos, tente novamente!</p>';
                         }
                     } else {
                         echo '<p class="bg-red text-white text-center">Usuário não encontrado!</p>';

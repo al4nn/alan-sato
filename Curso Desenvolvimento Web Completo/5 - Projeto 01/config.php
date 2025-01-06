@@ -30,15 +30,9 @@ define('DB_PASSWORD', $_ENV['DB_PASSWORD']);
 
 define('NOME_EMPRESA', 'Alan Sato Dev.');
 
-function positionPick($position)
+function takeOffice($position)
 {
-    $arr = [
-        '0' => 'Normal',
-        '1' => 'Moderador',
-        '2' => 'Administrador'
-    ];
-
-    return $arr[$position] ?? 'Desconhecido';
+    return Painel::$positions[$position];
 }
 
 function selectedMenu($param, $existingClasses)
@@ -62,7 +56,8 @@ function checkPermissionMenu($permission)
     }
 }
 
-function checkPermissionPage($permission) {
+function checkPermissionPage($permission)
+{
     if ($_SESSION['position'] >= $permission) {
         return;
     } else {

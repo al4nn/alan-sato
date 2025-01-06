@@ -8,6 +8,10 @@ $pegarTotalVisitas = $pegarTotalVisitas->rowCount();
 $pegarVisitasHoje = MySql::connect()->prepare("SELECT * FROM `tb_admin.visitas` WHERE dia = ?");
 $pegarVisitasHoje->execute(array(date('Y-m-d')));
 $pegarVisitasHoje = $pegarVisitasHoje->rowCount();
+
+$usuariosPainel = MySql::connect()->prepare("SELECT * FROM `tb_admin.usuarios`");
+$usuariosPainel->execute();
+$usuariosPainel = $usuariosPainel->fetchAll();
 ?>
 
 <section class="box-painel">
@@ -63,8 +67,11 @@ $pegarVisitasHoje = $pegarVisitasHoje->rowCount();
             </g>
         </svg>
         <h2>
-            Informações dos Usuários Online
+            Informações dos Usuários Online:
         </h2>
+        <p>
+            <?php echo count($usuariosOnline) ?>
+        </p>
     </div>
     <div class="table">
         <div class="row grid">
@@ -86,6 +93,46 @@ $pegarVisitasHoje = $pegarVisitasHoje->rowCount();
                     <span>
                         <?php $date = date('d/m/Y H:i:s', strtotime($usuario['ultima_acao'])); ?>
                         <?php echo $date != '' ? $date : '19/09/2011 19:00:00' ?>
+                    </span>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>
+
+<section class="box-painel">
+    <div class="title flex align-center">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </svg>
+        <h2>
+            Usuários do Painel
+        </h2>
+    </div>
+    <div class="table">
+        <div class="row grid">
+            <div class="col">
+                <span class="fw-700">Nome</span>
+            </div>
+            <div class="col">
+                <span class="fw-700">Cargo</span>
+            </div>
+        </div>
+        <?php foreach ($usuariosPainel as $usuario) : ?>
+            <div class="row grid">
+                <div class="col">
+                    <span>
+                        <?php echo $usuario['name']; ?>
+                    </span>
+                </div>
+                <div class="col">
+                    <span>
+                        <?php echo takeOffice($usuario['position']); ?>
                     </span>
                 </div>
             </div>
