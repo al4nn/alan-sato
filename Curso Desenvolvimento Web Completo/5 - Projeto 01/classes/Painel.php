@@ -43,21 +43,50 @@ class Painel
         $sql = MySql::connect()->exec("DELETE FROM `tb_admin.online` WHERE ultima_acao < '$date' - INTERVAL 1 MINUTE");
     }
 
-    public static function alert($type, $mensagem)
+    public static function alert($type, $message, $description)
     {
         $icon = $type == 'success' ? 'success' : 'error';
         $title = $type == 'success' ? 'Usuário atualizado com sucesso!' : 'Erro ao atualizar, tente novamente!';
-        if (!empty($mensagem)) {
-            $title = $mensagem;
+        if (!empty($message)) {
+            $title = $message;
         }
 
         echo '<script>
             document.addEventListener("DOMContentLoaded", function () {
                 Swal.fire({
                     icon: "' . $icon . '",
-                    title: "' . $title . '"
+                    title: "' . $title . '",
+                    text: "' . $description . '"
                 });
             });
         </script>';
+    }
+
+    public static function validImage($image)
+    {
+        if ($image['type'] == 'image/jpg' || $image['type'] == 'image/jpeg' || $image['type'] == 'image/png') {
+            $size = intval($image['size'] / 1024);
+
+            if ($size < 300) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public static function uploadFile($file)
+    {
+        if (move_uploaded_file($file['tmp_name'], BASE_DIR_PAINEL . '/uploads/' . $file['name'])) {
+            return $file['name'];
+        } else {
+            return false;
+        }
+    }
+
+    public static function deleteFile($file) {
+        @unlink('uploads/' . $file);
     }
 }

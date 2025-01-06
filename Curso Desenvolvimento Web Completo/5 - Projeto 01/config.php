@@ -18,8 +18,9 @@ $autoload = function ($class) {
 
 spl_autoload_register($autoload);
 
-define('INCLUDE_PATH', 'http://estudos.danki-code.projeto1.localhost/');
+define('INCLUDE_PATH', 'http://projeto1.dankicode.localhost:8080/');
 define('INCLUDE_PATH_PAINEL', INCLUDE_PATH . 'painel/');
+define('BASE_DIR_PAINEL', __DIR__ . '/painel');
 
 // Dados do banco de dados
 define('DB_HOST', $_ENV['DB_HOST']);
