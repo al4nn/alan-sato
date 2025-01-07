@@ -122,4 +122,34 @@ class Painel
     {
         @unlink('uploads/' . $file);
     }
+
+    public static function insert($arr)
+    {
+        $right = true;
+        $name_table = $arr['name_table'];
+        $query = "INSERT INTO `$name_table` VALUES (null";
+
+        foreach ($arr as $key => $value) {
+            if ($key == 'acao' || $key == 'name_table') {
+                continue;
+            }
+
+            if ($value == '') {
+                $right = false;
+                break;
+            }
+
+            $query .= ", ?";
+            $param[] = $value;
+        }
+
+        $query .= ")";
+
+        if ($right == true) {
+            $sql = MySql::connect()->prepare($query);
+            $sql->execute($param);
+        }
+
+        return $right;
+    }
 }
