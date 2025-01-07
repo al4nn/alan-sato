@@ -1,4 +1,4 @@
-<div class="box-painel">
+<section class="box-painel">
     <div class="title flex align-center">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -59,4 +59,4 @@
             <input class="fw-700" type="submit" name="acao" value="Atualizar" />
         </div>
     </form>
-</div>
+</section>

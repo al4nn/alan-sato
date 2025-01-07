@@ -1,6 +1,6 @@
 <?php checkPermissionPage(2); ?>
 
-<div class="box-painel cadastrar-usuario">
+<section class="box-painel cadastrar-usuario">
     <div class="title flex align-center">
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -72,4 +72,4 @@
             <input class="fw-700" type="submit" name="acao" value="Adicionar" />
         </div>
     </form>
-</div>
+</section>
