@@ -1,6 +1,6 @@
 <?php checkPermissionPage(1); ?>
 
-<div class="box-painel cadastrar-depoimento">
+<section class="box-painel cadastrar-depoimento">
     <div class="title flex align-center">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -34,7 +34,10 @@
             <textarea name="testimony" rows="4" placeholder="Depoimento"></textarea>
         </div>
         <div class="form-group">
+            <input type="text" name="date" placeholder="Data" />
+        </div>
+        <div class="form-group">
             <input class="fw-700" type="submit" name="acao" value="Cadastrar!" />
         </div>
     </form>
-</div>
+</section>
