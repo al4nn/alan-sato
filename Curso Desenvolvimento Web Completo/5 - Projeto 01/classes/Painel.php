@@ -14,6 +14,9 @@ class Painel
 
     public static function logout()
     {
+        setcookie('remember', true, time() - 10, '/');
+        setcookie('username', true, time() - 10, '/');
+        setcookie('password', true, time() - 10, '/');
         session_destroy();
         header('Location: ' . INCLUDE_PATH_PAINEL);
         exit();

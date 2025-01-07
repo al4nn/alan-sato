@@ -1,4 +1,27 @@
-<?php require_once('../config.php'); ?>
+<?php
+if (isset($_COOKIE['remember'])) {
+    $username = $_COOKIE['username'];
+    $password = $_COOKIE['password'];
+
+    $sql = MySql::connect()->prepare("SELECT * FROM `tb_admin.usuarios` WHERE username = ?");
+    $sql->execute([$username]);
+
+    if ($sql->rowCount() == 1) {
+        $info = $sql->fetch();
+
+        if (password_verify($password, $info['password'])) {
+            $_SESSION['login'] = true;
+            $_SESSION['username'] = $username;
+            $_SESSION['name'] = $info['name'];
+            $_SESSION['image'] = $info['image'];
+            $_SESSION['position'] = $info['position'];
+
+            header('Location: ' . INCLUDE_PATH_PAINEL);
+            die();
+        }
+    }
+}
+?>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -42,6 +65,12 @@
                             $_SESSION['image'] = $info['image'];
                             $_SESSION['position'] = $info['position'];
 
+                            if (isset($_POST['remember'])) {
+                                setcookie('remember', true, time() + (60 * 60 * 24), '/');
+                                setcookie('username', $username, time() + (60 * 60 * 24), '/');
+                                setcookie('password', $password, time() + (60 * 60 * 24), '/');
+                            }
+
                             header('Location: ' . INCLUDE_PATH_PAINEL);
                             die();
                         } else {
@@ -57,7 +86,13 @@
                     <h2 class="text-center text-white uppercase">Logomarca</h2>
                     <input type="text" name="username" placeholder="Usuário" id="" required />
                     <input type="password" name="password" placeholder="Senha" id="" required />
-                    <input type="submit" name="acao" value="Entrar" />
+                    <div class="form-group flex justify-between align-center">
+                        <label>
+                            <input type="checkbox" name="remember" id="checkbox">
+                            Lembrar-me
+                        </label>
+                        <input type="submit" name="acao" value="Entrar" />
+                    </div>
                 </form>
             </div>
         </div>

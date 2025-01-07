@@ -49,10 +49,30 @@
                         background-color: #38f6a3;
                         font-weight: 700;
                         max-width: 9.375rem;
+                        max-height: 2.3125rem;
                         cursor: pointer;
 
                         &:hover {
                             transform: scale(1.05);
+                        }
+                    }
+                }
+
+                .form-group {
+                    width: 100%;
+                    gap: 0.3125rem;
+                    margin-top: 0.9375rem;
+
+                    label {
+                        color: #fff;
+                        font-size: 0.875rem;
+                        user-select: none;
+                        width: 100%;
+
+                        input {
+                            max-width: 0.875rem;
+                            max-height: 0.875rem;
+                            border-radius: 0.625rem;
                         }
                     }
                 }
