@@ -6,4 +6,6 @@ $(document).ready(function () {
         $(".painel .wrapper aside .profile").toggleClass("active");
         $(".painel .wrapper main").toggleClass("active");
     });
+
+    $("input[name='date']").mask("00/00/0000");
 });
