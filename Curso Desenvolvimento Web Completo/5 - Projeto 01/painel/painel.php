@@ -272,6 +272,7 @@ if (isset($_GET['logout'])) {
     </section>
 
     <script src="<?php echo INCLUDE_PATH; ?>assets/libs/jquery-3.7.1.min.js"></script>
+    <script src="<?php echo INCLUDE_PATH_PAINEL; ?>assets/libs/jquery.mask.js"></script>
     <script src="<?php echo INCLUDE_PATH_PAINEL; ?>assets/libs/sweetalert2.js"></script>
     <script src="<?php echo INCLUDE_PATH_PAINEL; ?>assets/js/main.js"></script>
 </body>
