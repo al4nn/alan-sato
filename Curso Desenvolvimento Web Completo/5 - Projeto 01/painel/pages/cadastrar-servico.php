@@ -19,7 +19,6 @@
     </div>
 
     <form method="post" enctype="multipart/form-data">
-        <input type="hidden" name="name_table" value="tb_site.servicos" />
         <?php if (isset($_POST['acao'])) {
             if (Painel::insert($_POST)) {
                 Painel::alert('success', 'Serviço cadastrado com sucesso!', '');
@@ -27,6 +26,7 @@
                 Painel::alert('error', 'Campos vázios não são permitidos!', 'Tente novamente!');
             }
         } ?>
+        <input type="hidden" name="name_table" value="tb_site.servicos" />
         <div class="form-group">
             <textarea name="service" rows="4" placeholder="Serviço"></textarea>
         </div>
