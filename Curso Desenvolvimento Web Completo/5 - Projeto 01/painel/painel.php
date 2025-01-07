@@ -4,7 +4,6 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] === false) {
     exit();
 }
 
-
 if (isset($_GET['logout'])) {
     Painel::logout();
 }
