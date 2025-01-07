@@ -10,7 +10,7 @@ class Site
             $check->execute(array($_SESSION['online']));
 
             if ($check->rowCount() == 1) {
-                $sql = MySql::connect()->prepare("UPDATE `tb_admin.online` SET ultima_acao = ? WHERE token = ?");
+                $sql = MySql::connect()->prepare("UPDATE `tb_admin.online` SET last_action = ? WHERE token = ?");
                 $sql->execute(array($horarioAtual, $token));
             } else {
                 $ip = $_SERVER['REMOTE_ADDR'];

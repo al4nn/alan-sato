@@ -49,7 +49,7 @@ class Painel
     public static function cleanUsersOnline()
     {
         $date = date('Y-m-d H:i:s');
-        $sql = MySql::connect()->exec("DELETE FROM `tb_admin.online` WHERE ultima_acao < '$date' - INTERVAL 1 MINUTE");
+        $sql = MySql::connect()->exec("DELETE FROM `tb_admin.online` WHERE last_action < '$date' - INTERVAL 1 MINUTE");
     }
 
     public static function alert($type, $message, $description)

@@ -5,7 +5,7 @@ $pegarTotalVisitas = MySql::connect()->prepare("SELECT * FROM `tb_admin.visitas`
 $pegarTotalVisitas->execute();
 $pegarTotalVisitas = $pegarTotalVisitas->rowCount();
 
-$pegarVisitasHoje = MySql::connect()->prepare("SELECT * FROM `tb_admin.visitas` WHERE dia = ?");
+$pegarVisitasHoje = MySql::connect()->prepare("SELECT * FROM `tb_admin.visitas` WHERE day = ?");
 $pegarVisitasHoje->execute(array(date('Y-m-d')));
 $pegarVisitasHoje = $pegarVisitasHoje->rowCount();
 
@@ -91,7 +91,7 @@ $usuariosPainel = $usuariosPainel->fetchAll();
                 </div>
                 <div class="col">
                     <span>
-                        <?php $date = date('d/m/Y H:i:s', strtotime($usuario['ultima_acao'])); ?>
+                        <?php $date = date('d/m/Y H:i:s', strtotime($usuario['last_action'])); ?>
                         <?php echo $date != '' ? $date : '19/09/2011 19:00:00' ?>
                     </span>
                 </div>
