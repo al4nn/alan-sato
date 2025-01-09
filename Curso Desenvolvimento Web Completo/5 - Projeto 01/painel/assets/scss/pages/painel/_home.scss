@@ -6,10 +6,6 @@
     border-radius: 0.3125rem;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.6);
 
-    @media (max-width: 53.75rem) {
-        min-width: 16.8125rem;
-    }
-
     .title {
         gap: 0.5rem;
         margin-bottom: 1.25rem;
@@ -78,6 +74,7 @@
 
                     @media (max-width: 48rem) {
                         white-space: unset;
+                        font-size: 0.875rem;
                     }
                 }
             }

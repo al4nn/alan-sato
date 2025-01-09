@@ -16,10 +16,18 @@
     svg {
         max-width: 12.5rem;
         animation: pulse 2s infinite;
+
+        @media (max-width: 48rem) {
+            max-width: 6.25rem;
+        }
     }
 
     h2 {
         margin-bottom: 1.25rem;
+
+        @media (max-width: 48rem) {
+            font-size: 1.25rem;
+        }
     }
 
     a {
