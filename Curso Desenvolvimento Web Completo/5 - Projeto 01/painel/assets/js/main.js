@@ -7,5 +7,12 @@ $(document).ready(function () {
         $(".painel .wrapper main").toggleClass("active");
     });
 
-    $("input[name='date']").mask("00/00/0000");
+    $("input[name='date']").mask("00/00/0000", {
+        selectOnFocus: true,
+        translation: {
+            0: {
+                pattern: /[0-9]/,
+            },
+        },
+    });
 });
