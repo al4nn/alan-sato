@@ -28,13 +28,13 @@
         } ?>
         <input type="hidden" name="name_table" value="tb_site.depoimentos" />
         <div class="form-group">
-            <input type="text" name="name" placeholder="Nome" />
+            <input type="text" name="name" placeholder="Nome" required />
         </div>
         <div class="form-group">
-            <textarea name="testimony" rows="4" placeholder="Depoimento"></textarea>
+            <textarea name="testimony" rows="4" placeholder="Depoimento" required></textarea>
         </div>
         <div class="form-group">
-            <input type="text" name="date" placeholder="Data" />
+            <input type="text" name="date" placeholder="Data" required selectonfocus="true" />
         </div>
         <div class="form-group">
             <input class="fw-700" type="submit" name="acao" value="Cadastrar!" />
