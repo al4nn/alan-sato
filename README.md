@@ -12,7 +12,7 @@ Atualmente, estou fazendo o **Curso Desenvolvimento Web Completo**.
 
 ### Cursando
 
-- **Curso Desenvolvimento Web Completo** - 24%
+- **Curso Desenvolvimento Web Completo** - 25%
 
 ### A ser feito
 
