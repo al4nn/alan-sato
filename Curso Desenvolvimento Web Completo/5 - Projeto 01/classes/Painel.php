@@ -152,4 +152,16 @@ class Painel
 
         return $right;
     }
+
+    public static function selectAll($table, $start = null, $end = null)
+    {
+        if ($start == null && $end == null) {
+            $sql = MySql::connect()->prepare("SELECT * FROM `$table`");
+        } else {
+            $sql = MySql::connect()->prepare("SELECT * FROM `$table` ORDER BY id DESC LIMIT $start, $end");
+        }
+        $sql->execute();
+
+        return $sql->fetchAll();
+    }
 }
