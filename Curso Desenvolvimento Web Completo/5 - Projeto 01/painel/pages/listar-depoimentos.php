@@ -4,6 +4,13 @@ $perPage = 25;
 
 $depoimentos = Painel::selectAll('tb_site.depoimentos', ($currentPage - 1) * $perPage, $perPage);
 
+if (isset($_GET['delete'])) {
+    $idDelete = intval($_GET['delete']);
+
+    Painel::delete('tb_site.depoimentos', $idDelete);
+    Painel::redirect(INCLUDE_PATH_PAINEL . 'listar-depoimentos');
+}
+
 ?>
 
 <section class="box-painel listar-depoimentos">
@@ -63,7 +70,7 @@ $depoimentos = Painel::selectAll('tb_site.depoimentos', ($currentPage - 1) * $pe
                         </a>
                     </td>
                     <td>
-                        <a class="flex align-center justify-center no-decoration text-black btn-delete" href="">
+                        <a actionBtn="delete" class="flex align-center justify-center no-decoration text-black btn-delete" onclick="confirmDelete(<?php echo $depoimento['id']; ?>)">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -99,3 +106,22 @@ $depoimentos = Painel::selectAll('tb_site.depoimentos', ($currentPage - 1) * $pe
         <?php endfor; ?>
     </div>
 </section>
+
+<script>
+    function confirmDelete(id) {
+        Swal.fire({
+            title: "Você tem certeza?",
+            text: "Essa ação não pode ser desfeita!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#006bd4",
+            cancelButtonColor: "#f00",
+            confirmButtonText: "Sim, deletar!",
+            cancelButtonText: "Cancelar",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = `listar-depoimentos?delete=${id}`;
+            }
+        });
+    }
+</script>

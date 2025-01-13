@@ -164,4 +164,22 @@ class Painel
 
         return $sql->fetchAll();
     }
+
+    public static function delete($table, $id = false)
+    {
+        if ($id == false) {
+            $sql = MySql::connect()->prepare("DELETE FROM `$table`");
+        } else {
+            $sql = MySql::connect()->prepare("DELETE FROM `$table` WHERE id = $id");
+        }
+
+        $sql->execute();
+    }
+
+    public static function redirect($url)
+    {
+        echo '<script>location.href = "' . $url . '"</script>';
+
+        die();
+    }
 }
