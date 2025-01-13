@@ -14,7 +14,7 @@
 
     <form method="post" enctype="multipart/form-data">
         <?php if (isset($_POST['acao'])) {
-            Painel::alert('success', 'Atualizado com sucesso!', '');
+            Painel::alert('success', 'Atualizado com sucesso!', '', '', '', '', '', '');
             $name = $_POST['name'];
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $image = $_FILES['image'];
@@ -28,20 +28,20 @@
 
                     if ($user->updateUser($name, $password, $image)) {
                         $_SESSION['image'] = $image;
-                        Painel::alert('success', 'Atualizado com sucesso junto com a imagem!', '');
+                        Painel::alert('success', 'Atualizado com sucesso junto com a imagem!', '', '', '', '', '', '');
                     } else {
-                        Painel::alert('error', 'Falha ao atualizar junto com a imagem, tente novamente!', '');
+                        Painel::alert('error', 'Falha ao atualizar junto com a imagem, tente novamente!', '', '', '', '', '', '');
                     }
                 } else {
-                    Painel::alert('error', 'O formato da imagem não é válido!', 'Tente imagens .jpg, .jpeg ou .png!');
+                    Painel::alert('error', 'O formato da imagem não é válido!', 'Tente imagens .jpg, .jpeg ou .png!', '', '', '', '', '');
                 }
             } else {
                 $image = $current_image;
 
                 if ($user->updateUser($name, $password, $image)) {
-                    Painel::alert('success', 'Atualizado com sucesso!', '');
+                    Painel::alert('success', 'Atualizado com sucesso!', '', '', '', '', '', '');
                 } else {
-                    Painel::alert('error', 'Falha ao atualizar, tente novamente!', '');
+                    Painel::alert('error', 'Falha ao atualizar, tente novamente!', '', '', '', '', '', '');
                 }
             }
         } ?>
@@ -56,7 +56,7 @@
             <input type="hidden" name="current_image" value="<?php echo $_SESSION['image']; ?>">
         </div>
         <div class="form-group">
-            <input class="fw-700" type="submit" name="acao" value="Atualizar" />
+            <input class="fw-700" type="submit" name="acao" value="Atualizar!" />
         </div>
     </form>
 </section>

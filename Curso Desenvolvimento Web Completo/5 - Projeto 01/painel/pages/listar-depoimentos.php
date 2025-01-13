@@ -56,7 +56,7 @@ if (isset($_GET['delete'])) {
                         <?php echo $depoimento['date']; ?>
                     </td>
                     <td>
-                        <a class="flex align-center justify-center no-decoration text-black btn-edit" href="">
+                        <a class="flex align-center justify-center no-decoration text-black btn-edit" href="<?php echo INCLUDE_PATH_PAINEL; ?>editar-depoimento?id=<?php echo $depoimento['id']; ?>">
                             <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -70,7 +70,7 @@ if (isset($_GET['delete'])) {
                         </a>
                     </td>
                     <td>
-                        <a actionBtn="delete" class="flex align-center justify-center no-decoration text-black btn-delete" onclick="confirmDelete(<?php echo $depoimento['id']; ?>)">
+                        <a actionBtn="delete" class="flex align-center justify-center no-decoration text-black btn-delete" href="javascript:void(0);" onclick="confirmDelete(<?php echo $depoimento['id']; ?>)">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

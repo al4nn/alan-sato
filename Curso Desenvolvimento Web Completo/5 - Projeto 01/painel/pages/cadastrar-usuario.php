@@ -23,18 +23,18 @@
             $image = $_FILES['image'];
 
             if ($username == '') {
-                Painel::alert('error', 'O campo Usuário não pode estar vazio!', '');
+                Painel::alert('error', 'O campo Usuário não pode estar vazio!', '', '', '', '', '', '');
             } else if ($position == '') {
-                Painel::alert('error', 'O campo Cargo não pode estar vazio!', '');
+                Painel::alert('error', 'O campo Cargo não pode estar vazio!', '', '', '', '', '', '');
             } else if ($name == '') {
-                Painel::alert('error', 'O campo Nome não pode estar vazio!', '');
+                Painel::alert('error', 'O campo Nome não pode estar vazio!', '', '', '', '', '', '');
             } else if ($password == '') {
-                Painel::alert('error', 'O campo Senha não pode estar vazio!', '');
+                Painel::alert('error', 'O campo Senha não pode estar vazio!', '', '', '', '', '', '');
             } else {
                 if (Painel::validImage($image) == false) {
-                    Painel::alert('error', 'O formato da imagem não é válido!', 'Tente imagens .jpg, .jpeg ou .png!');
+                    Painel::alert('error', 'O formato da imagem não é válido!', 'Tente imagens .jpg, .jpeg ou .png!', '', '', '', '', '');
                 } else if (User::userExists($username)) {
-                    Painel::alert('error', 'Já existe um cadastro com esse Usuário!', 'Tente novamente!');
+                    Painel::alert('error', 'Já existe um cadastro com esse Usuário!', 'Tente novamente!', '', '', '', '', '');
                 } else {
                     $user = new User();
 
@@ -42,7 +42,7 @@
 
                     $user->registerUser($username, $password, $image, $name, $position);
 
-                    Painel::alert('success', 'Cadastro realizado com sucesso!', '');
+                    Painel::alert('success', 'Cadastro realizado com sucesso!', '', '', '', '', '', '');
                 }
             }
         } ?>
@@ -69,7 +69,7 @@
             <input type="file" name="image" />
         </div>
         <div class="form-group">
-            <input class="fw-700" type="submit" name="acao" value="Adicionar" />
+            <input class="fw-700" type="submit" name="acao" value="Cadastrar!" />
         </div>
     </form>
 </section>

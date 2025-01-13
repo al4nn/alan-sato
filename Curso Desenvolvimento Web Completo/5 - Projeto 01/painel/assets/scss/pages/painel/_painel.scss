@@ -299,7 +299,9 @@
             background-color: #fff;
             width: 100%;
 
-            &.cadastrar-usuario {
+            &.cadastrar-usuario,
+            &.cadastrar-depoimento,
+            &.cadastrar-servico {
                 form {
                     .form-group {
                         input {
@@ -359,6 +361,10 @@
                         &:focus {
                             outline: none;
                         }
+                    }
+
+                    textarea {
+                        resize: vertical;
                     }
 
                     select {

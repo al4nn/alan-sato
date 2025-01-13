@@ -23,6 +23,11 @@ if (isset($_GET['logout'])) {
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH; ?>assets/css/painel.min.css">
+
+    <script src="<?php echo INCLUDE_PATH; ?>assets/libs/jquery-3.7.1.min.js"></script>
+    <script src="<?php echo INCLUDE_PATH_PAINEL; ?>assets/libs/jquery.mask.js"></script>
+    <script src="<?php echo INCLUDE_PATH_PAINEL; ?>assets/libs/sweetalert2.js"></script>
+    <script src="<?php echo INCLUDE_PATH_PAINEL; ?>assets/js/main.js"></script>
 </head>
 
 <body>
@@ -270,11 +275,6 @@ if (isset($_GET['logout'])) {
             </main>
         </div>
     </section>
-
-    <script src="<?php echo INCLUDE_PATH; ?>assets/libs/jquery-3.7.1.min.js"></script>
-    <script src="<?php echo INCLUDE_PATH_PAINEL; ?>assets/libs/jquery.mask.js"></script>
-    <script src="<?php echo INCLUDE_PATH_PAINEL; ?>assets/libs/sweetalert2.js"></script>
-    <script src="<?php echo INCLUDE_PATH_PAINEL; ?>assets/js/main.js"></script>
 </body>
 
 </html>

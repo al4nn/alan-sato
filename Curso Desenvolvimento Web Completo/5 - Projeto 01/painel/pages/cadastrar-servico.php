@@ -1,6 +1,6 @@
 <?php checkPermissionPage(1); ?>
 
-<section class="box-painel cadastrar-depoimento">
+<section class="box-painel cadastrar-servico">
     <div class="title flex align-center">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -21,9 +21,9 @@
     <form method="post" enctype="multipart/form-data">
         <?php if (isset($_POST['acao'])) {
             if (Painel::insert($_POST)) {
-                Painel::alert('success', 'Serviço cadastrado com sucesso!', '');
+                Painel::alert('success', 'Serviço cadastrado com sucesso!', '', '', '', '', '', '');
             } else {
-                Painel::alert('error', 'Campos vázios não são permitidos!', 'Tente novamente!');
+                Painel::alert('error', 'Campos vázios não são permitidos!', 'Tente novamente!', '', '', '', '', '');
             }
         } ?>
         <input type="hidden" name="name_table" value="tb_site.servicos" />

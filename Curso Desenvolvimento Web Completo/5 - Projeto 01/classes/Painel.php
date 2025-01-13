@@ -52,7 +52,7 @@ class Painel
         $sql = MySql::connect()->exec("DELETE FROM `tb_admin.online` WHERE last_action < '$date' - INTERVAL 1 MINUTE");
     }
 
-    public static function alert($type, $message, $description)
+    public static function alert($type, $message, $description, $confirmButtonColor, $confirmButtonText, $allowOutsideClick, $allowEscapeKey, $redirecUrl)
     {
         $icon = $type == 'success' ? 'success' : 'error';
         $title = $type == 'success' ? 'Usuário atualizado com sucesso!' : 'Erro ao atualizar, tente novamente!';
@@ -65,29 +65,35 @@ class Painel
                 Swal.fire({
                     icon: "' . $icon . '",
                     title: "' . $title . '",
-                    text: "' . $description . '",
-                });
-            });
-        </script>';
-    }
+                    text: "' . $description . '",';
 
-    public static function alertPermissionDenied($script)
-    {
-        echo '<script>
-            document.addEventListener("DOMContentLoaded", function () {
-                Swal.fire({
-                    icon: "error",
-                    title: "Você não tem permissão para acessar essa página!",
-                    confirmButtonColor: "#2a1e47",
-                    confirmButtonText: "Voltar para Home!",
-                    allowOutsideClick: false,
-                    allowEscapeKey: false
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        ' . $script . '
-                    }
-                });
-            });
+        if (!empty($confirmButtonColor)) {
+            echo 'confirmButtonColor: "' . $confirmButtonColor . '",';
+        }
+
+        if (!empty($confirmButtonText)) {
+            echo 'confirmButtonText: "' . $confirmButtonText . '",';
+        }
+
+        if ($allowOutsideClick == false) {
+            echo 'allowOutsideClick: false,';
+        }
+
+        if ($allowEscapeKey == false) {
+            echo 'allowEscapeKey: false,';
+        }
+
+        echo '})';
+
+        if (!empty($confirmButtonColor) && !empty($confirmButtonText)) {
+            echo '.then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "' . $redirecUrl . '";
+                }
+            })';
+        }
+
+        echo '});
         </script>';
     }
 
@@ -181,5 +187,50 @@ class Painel
         echo '<script>location.href = "' . $url . '"</script>';
 
         die();
+    }
+
+    public static function select($table, $query, $arr)
+    {
+        $sql = MySql::connect()->prepare("SELECT * FROM `$table` WHERE $query");
+
+        $sql->execute($arr);
+
+        return $sql->fetch();
+    }
+
+    public static function update($arr)
+    {
+        $right = true;
+        $first = false;
+        $name_table = $arr['name_table'];
+        $query = "UPDATE `$name_table` SET ";
+
+        foreach ($arr as $key => $value) {
+            if ($key == 'acao' || $key == 'name_table' || $key == 'id') {
+                continue;
+            }
+
+            if ($value == '') {
+                $right = false;
+                break;
+            }
+
+            if ($first == false) {
+                $first = true;
+                $query .= "$key = ?";
+            } else {
+                $query .= ", $key = ?";
+            }
+
+            $param[] = $value;
+        }
+
+        if ($right == true) {
+            $param[] = $arr['id'];
+            $sql = MySql::connect()->prepare($query . ' WHERE id = ?');
+            $sql->execute($param);
+        }
+
+        return $right;
     }
 }
